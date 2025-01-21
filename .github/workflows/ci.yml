@@ -19,10 +19,6 @@ jobs:
           distribution: 'temurin'
           java-version: '18'
 
-       # Build with Maven
-      - name: Build with Maven
-        run: mvn clean compile
-
-       # Running tests via testng.xml
-      - name: Run tests with testng.xml
-        run: mvn test -Dsurefire.suiteXmlFiles=src/test/resources/runner/testng.xml
+      # Run Maven tests
+      - name: Run tests
+        run: mvn clean test
