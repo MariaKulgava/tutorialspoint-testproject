@@ -3,8 +3,7 @@ package tests;
 import models.TestData;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pageobject.components.AccentHeaderComponent;
-import pageobject.components.HeaderShowComponent;
+import pageobject.components.HeaderComponent;
 import pageobject.pages.HomePage;
 import pageobject.pages.UnixTutorialPage;
 import runner.BaseRunner;
@@ -22,8 +21,7 @@ public class UnixNavigationTest extends BaseRunner {
     @BeforeMethod
     public void setUpPages() {
         homePage = new HomePage();
-        accentHeaderComponent = new AccentHeaderComponent();
-        headerShowComponent = new HeaderShowComponent();
+        headerComponent = new HeaderComponent();
         unixTutorialPage = new UnixTutorialPage();
 
         categoryName = testData.category;
@@ -35,11 +33,11 @@ public class UnixNavigationTest extends BaseRunner {
     @Test
     public void testUnixNavigation() {
         // Open the homepage
-        accentHeaderComponent.navigateToHomePage();
+        headerComponent.navigateToHomePage();
         homePage.assertHomePageTitle();
 
         // Select the DevOps category and choose the Unix sub-category
-        headerShowComponent.navigateToSubcategory(categoryName, subCategoryName);
+        headerComponent.navigateToSubcategory(categoryName, subCategoryName);
 
         // Verify successful navigation
         unixTutorialPage.assertUnixTutorialTitle()

@@ -4,18 +4,12 @@ import com.codeborne.selenide.SelenideElement;
 import org.testng.Assert;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.title;
 
 public class BasePage {
 
-    public void openPage(String relativeUrl) {
-        open(relativeUrl);
-    }
-
-    public void click(SelenideElement element) {
-        element.shouldBe(visible).click();
-    }
+    private static final SelenideElement header = $x("//h1");
 
     public void assertPageTitle(String expectedTitle) {
         String actualTitle = title();
@@ -24,6 +18,7 @@ public class BasePage {
     }
 
     public void assertPageHeader(String expectedHeader) {
-        $x("//h1").shouldHave(text(expectedHeader));
+        header.shouldHave(text(expectedHeader));
     }
+
 }

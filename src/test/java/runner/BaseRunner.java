@@ -4,8 +4,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import pageobject.components.AccentHeaderComponent;
-import pageobject.components.HeaderShowComponent;
+import pageobject.components.HeaderComponent;
 import pageobject.pages.HomePage;
 import pageobject.pages.UnixTutorialPage;
 import utils.LoggerUtil;
@@ -13,8 +12,7 @@ import utils.LoggerUtil;
 public class BaseRunner {
 
     protected HomePage homePage;
-    protected AccentHeaderComponent accentHeaderComponent;
-    protected HeaderShowComponent headerShowComponent;
+    protected HeaderComponent headerComponent;
     protected UnixTutorialPage unixTutorialPage;
 
 
