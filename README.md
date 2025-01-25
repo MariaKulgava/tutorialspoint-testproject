@@ -1,9 +1,9 @@
 # TutorialsPoint Testing Framework
 
-This project is a basic automated testing framework designed to test the TutorialsPoint website: https://www.tutorialspoint.com/
+This project is a basic automated testing framework designed to test the **TutorialsPoint** website: https://www.tutorialspoint.com/
 
 
-It is built using Selenide with the Page Object Model, including:
+It is built using **Selenide** with the **Page Object Model**, including:
 
 - **Driver Manager:** Includes centralized WebDriver setup (Chrome, FireFox).
 - **Utility Classes:** Uses for reusable functions.
