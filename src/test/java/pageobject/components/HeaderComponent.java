@@ -6,7 +6,8 @@ import com.codeborne.selenide.SelenideElement;
 import enums.Menu;
 import pageobject.pages.HomePage;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -25,7 +26,7 @@ public class HeaderComponent {
     }
 
     private void navigateToMenu(Menu name) {
-        menuItems.findBy(attribute("title", name.getName()))
+        menuItems.findBy(text(name.getName()))
                 .click();
     }
 
