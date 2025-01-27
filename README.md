@@ -36,7 +36,7 @@ It is built using **Selenide** with the **Page Object Model**, including:
    ```
 
 2. Update configuration:
-    - Modify `src/test/resources/properties/config.properties` to set your desired configuration values, such as `browser`, and `timeout`.
+    - Modify `src/test/resources/properties/config.properties` to set your desired configuration values, such as `browser`, `headless`, and `timeout`.
 
 ---
 
