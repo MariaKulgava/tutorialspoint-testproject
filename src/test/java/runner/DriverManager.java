@@ -19,10 +19,11 @@ public class DriverManager {
         Configuration.browserSize = properties.getProperty("browserSize", "1920x1080");
         Configuration.timeout = Long.parseLong(properties.getProperty("timeout", "10000"));
         Configuration.baseUrl = properties.getProperty("baseUrl");
+        boolean headless = Boolean.parseBoolean(properties.getProperty("headless", "false"));
 
         switch (Configuration.browser.toLowerCase()) {
             case "chrome":
-                setupChrome();
+                setupChrome(headless);
                 break;
             case "firefox":
                 setupFirefox();
@@ -32,7 +33,7 @@ public class DriverManager {
         }
     }
 
-    private static void setupChrome() {
+    private static void setupChrome(boolean headless) {
         ChromeOptions options = new ChromeOptions();
 
         // Block ads, images, and pop-ups
@@ -40,6 +41,13 @@ public class DriverManager {
         prefs.put("profile.managed_default_content_settings.images", 2); // Disable image loading
         prefs.put("profile.managed_default_content_settings.popups", 2); // Disables pop-ups
         options.setExperimentalOption("prefs", prefs);
+
+        // Enable headless mode if required
+        if (headless) {
+            options.addArguments("--headless");
+            options.addArguments("--disable-gpu"); // Optional, may improve stability in some cases
+            options.addArguments("--disable-extensions");
+        }
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);

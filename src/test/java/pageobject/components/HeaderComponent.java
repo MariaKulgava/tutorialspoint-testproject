@@ -27,6 +27,7 @@ public class HeaderComponent {
 
     private void navigateToMenu(Menu name) {
         menuItems.findBy(text(name.getName()))
+                .shouldBe(visible)
                 .click();
     }
 
@@ -43,11 +44,13 @@ public class HeaderComponent {
 
     private void selectCategory(String categoryName) {
         categoryItems.findBy(text(categoryName))
+                .shouldBe(visible)
                 .click();
     }
 
     private void selectSubcategory(String subCategoryName) {
         subCategoryItems.findBy(text(subCategoryName))
+                .shouldBe(visible)
                 .click();
     }
 
